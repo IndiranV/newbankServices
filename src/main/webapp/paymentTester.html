@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>Payment Tester</title>
+<script type="text/javascript" src="lib/jquery-1.8.0.min.js"></script>
+</head>
+<body>
+	<table border="3" align="center" width="50%">
+		<tr>
+			<td>Payment Request type</td>
+			<td>:</td>
+			<td>
+				<input type="radio" name="ptype" value="1">Go PG
+				<input type="radio" name="ptype" value="2" checked>Show JSON Response
+			</td>
+		</tr>
+		<tr>
+			<td>Domain URL</td>
+			<td>:</td>
+			<td><input id="initurl" type="text" value="localhost:8080"/></td>
+		</tr>
+		<tr>
+			<td>Access Code</td>
+			<td>:</td>
+			<td><input type="text" id="accesscode"   size="60" /></td>
+		</tr>
+		<tr>
+			<td>Partner Code</td>
+			<td>:</td>
+			<td><input type="text" id="partnercode" value="VISAICICI"/></td>
+		</tr>
+		<tr>
+			<td>Order Code</td>
+			<td>:</td>
+			<td><input type="text" id="transactionId" /></td>
+		</tr>
+		<tr>
+			<td>Order Type</td>
+			<td>:</td>
+			<td><input type="text" id="orderType" value="RECHG"/></td>
+		</tr>
+		<tr>
+			<td>Response URL</td>
+			<td>:</td>
+			<td><input type="text" id="responseURL"   size="60"  value=""/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td><input type="button" id="initPayment" value="Init payment process"/></td>
+		</tr>
+		<tr>
+			<td>Response Recieved from init</td>
+			<td>:</td>
+			<td><textarea style="margin: 2px; width: 401px; height: 85px;" id="initResponse" ></textarea></td>
+		</tr>
+
+	</table>
+	<script type="text/javascript">
+		$('#initPayment').click(function(){
+			var partnercode = $('#partnercode').val();
+			var transactionId = $('#transactionId').val();
+			var responseURL = $('#responseURL').val();
+			var url = 'http://'+$('#initurl').val()+'/busservices/'+$('#accesscode').val()
+					+'/commerce/payment/request?orderType='+$('#orderType').val()+'&paymentGatewayCode='
+					+partnercode+'&orderCode='+transactionId+'&responseURL='+responseURL;
+			//alert("URL : "+url);
+			$.ajax({
+				'url' : url,
+				'cache' : false,
+				'dataType' : 'json',
+				'type' : "GET",
+				'async' : false,
+				'error' : initerror,
+				'success' : initsuccess
+			});
+		});
+		function initerror(jqXHR, textStatus, errorThrown) {
+			  alert(textStatus, errorThrown);
+		}
+		function initsuccess(data){
+			$('#initResponse').val(JSON.stringify(data));
+
+
+			parseResponse($('#initResponse').val());
+
+
+		}
+
+		function parseResponse(j){
+			var jsontext = $.parseJSON(j);
+
+			var getwayInputs = jsontext.gatewayInputDetails;
+			var paymentRequestURL = jsontext.paymentRequestUrl
+
+			if (jsontext.status == "0")
+			{
+				alert (jsontext.errorDesc);
+			}
+			else{
+				submitToPG(paymentRequestURL, getwayInputs)
+			}
+
+
+		}
+
+/*
+		{"phoneBookingFlag":false,"paymentRequestUrl":"http://localhost:8080/busservices/jsp/dummycard.jsp","transactionCode":"1002C","gatewayInputDetails":{"Merchant_Id":"dummycode","Checksum":"5315279","Amount":"1","vpc_OrderInfo":"1002","Redirect_Url":"http://localhost:8080/receive?eTransactionCode=1002C","Order_Id":"1002C"},"currentBalance":0,"creditLimit":0,"paymentGatewayProcessFlag":false}
+		*/
+		function submitToPG(actionURL, inputs)
+		{
+		 try{
+				var formstr = '<form id="paymentgetways" name="paymentgetways" method="post" action="'+actionURL+'">';
+				$(document).append(formstr);
+				if(inputs != undefined){
+					$.each(inputs, function(property, value) {
+						formstr = formstr + '<input type="text" id="'+property+'" name="'+property+'" value="' + value + '" />';
+	
+					});
+				}
+
+				formstr = formstr + '</form>';
+				$('#tempform').html(formstr);
+
+				$("#paymentgetways").submit();
+
+
+			} catch(e){alert("error: "+e.message)}
+
+		}
+
+
+
+	</script>
+	<div id="tempform"></div>
+</body>
+</html>

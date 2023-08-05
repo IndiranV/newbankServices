@@ -1,0 +1,5 @@
+Dear Customer,\n\t\tThank you for using ${operatorName!"-"} online bus ticket booking services.
+An amount of Rs.${refund!"-"}/- towards the refund for the cancellation done on ${cancellationTime!"-"} for Ticket PNR\t  ${bookingId!"-"} has \n been for credited to your account. 
+It will start reflecting in your bank statement in 3 to 21 working days. This is the time taken for the banks involved to process the repayment. You are requested to please check with your concerned bank regarding the same.
+We regret the delay if any, in crediting back the refunds and solicit your continued patronage to our services.For any clarifications, please free to call us between 10 am and 8 pm on working days.
+\n\t \t Thanks for using our Online Bus Ticket Services through ${website!"-"} \n your e-ticket has been booked  and the details are indicated below.

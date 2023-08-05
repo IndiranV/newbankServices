@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache updateCheck="false" name="bitsCacheFacory">
+	<defaultCache maxElementsInMemory="500000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="true"
+		diskSpoolBufferSizeMB="30" maxElementsOnDisk="10000000"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" />
+	<cache name="authTokenCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="10800"
+		timeToLiveSeconds="10800" memoryStoreEvictionPolicy="LFU">
+		<cacheEventListenerFactory
+			class="org.in.com.listener.EhCacheEventListenerFactory"
+			properties="bean=authCacheEventListener" listenFor="all" />
+	</cache>
+	<cache name="guestAuthTokenEhCache" maxElementsInMemory="1000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="10800"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="stateCache" maxElementsInMemory="50"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="amenitiesCache" maxElementsInMemory="50"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="stationCache" maxElementsInMemory="50000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="stationPointCache" maxElementsInMemory="50000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="21600"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="namespaceCache" maxElementsInMemory="1000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="menuCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="commerceCache" maxElementsInMemory="500"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="cancellationTermsCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="busCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="userCache" maxElementsInMemory="10000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="busTypeCategoryCache" maxElementsInMemory="10"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="groupCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="organizationCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="passengerDetailsCache" maxElementsInMemory="10000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="900"
+		timeToLiveSeconds="900" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="ticketAfterTripTimeCache"
+		maxElementsInMemory="10000" maxElementsOnDisk="0" eternal="false"
+		timeToIdleSeconds="12000" timeToLiveSeconds="12000"
+		memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="tripCache" maxElementsInMemory="50000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="172800"
+		timeToLiveSeconds="86400" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="scheduleCache" maxElementsInMemory="100000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="43200"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="scheduleTripDPCache" maxElementsInMemory="100000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="pgTransactionCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="21600"
+		timeToLiveSeconds="21600" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="hdfcCache" maxElementsInMemory="10000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="300"
+		timeToLiveSeconds="300" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="freshTransactionCache" maxElementsInMemory="1000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="5"
+		timeToLiveSeconds="5" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="freshSMSNotificationCache"
+		maxElementsInMemory="1000" maxElementsOnDisk="0" eternal="false"
+		timeToIdleSeconds="60" timeToLiveSeconds="60"
+		memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="OTPCache" maxElementsInMemory="100"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="1800"
+		timeToLiveSeconds="1800" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="namespaceTaxCache" maxElementsInMemory="1000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="searchStageCache" maxElementsInMemory="20000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="tripQuotaSeatCache" maxElementsInMemory="50000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="43200"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="ticketNotBoardedCache" maxElementsInMemory="10000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="12000"
+		timeToLiveSeconds="12000" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="scheduleActivityCache" maxElementsInMemory="10000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="300"
+		timeToLiveSeconds="300" memoryStoreEvictionPolicy="LFU">
+		<cacheEventListenerFactory
+			class="org.in.com.listener.EhCacheEventListenerFactory"
+			properties="bean=scheduleActivityCacheEventListener" listenFor="all" />
+	</cache>
+	<cache name="transactionValidityCache"
+		maxElementsInMemory="10000" maxElementsOnDisk="0" eternal="false"
+		timeToIdleSeconds="12000" timeToLiveSeconds="3600"
+		memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="ticketEventCache" maxElementsInMemory="10000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="600"
+		timeToLiveSeconds="600" memoryStoreEvictionPolicy="LFU">
+		<cacheEventListenerFactory
+			class="org.in.com.listener.EhCacheEventListenerFactory"
+			properties="bean=ticketCacheEventListener" listenFor="all" />
+	</cache>
+	<cache name="fareRuleCache" maxElementsInMemory="50"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="driverCache" maxElementsInMemory="500"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="attendantCache" maxElementsInMemory="500"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="bannerCache" maxElementsInMemory="500"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="18000"
+		timeToLiveSeconds="18000" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="calendarAnnouncementCache" maxElementsInMemory="500"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="18000"
+		timeToLiveSeconds="18000" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="busBuddyCache" maxElementsInMemory="1000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="18000"
+		timeToLiveSeconds="1200" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="namespaceIntegrationCache" maxElementsInMemory="500"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="scheduleTagCache" maxElementsInMemory="500"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="busBreakevenCache" maxElementsInMemory="500"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="stateFuelCache" maxElementsInMemory="100"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="21600"
+		timeToLiveSeconds="21600" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="scheduleFareTemplateCache" maxElementsInMemory="500"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="scheduleTripStageFareCache"
+		maxElementsInMemory="100000" maxElementsOnDisk="0" eternal="false"
+		timeToIdleSeconds="0" timeToLiveSeconds="0"
+		memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="appStoreDetailsCache" maxElementsInMemory="100000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="notificationSubscriptionCache"
+		maxElementsInMemory="100000" maxElementsOnDisk="0" eternal="false"
+		timeToIdleSeconds="0" timeToLiveSeconds="0"
+		memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="smsTemplateConfigCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="sectorCache" maxElementsInMemory="100000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="userMenuCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="eventNotificationConfigCache"
+		maxElementsInMemory="5000" maxElementsOnDisk="0" eternal="false"
+		timeToIdleSeconds="0" timeToLiveSeconds="0"
+		memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="termCache" maxElementsInMemory="5000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="specialDiscountCriteriaCache"
+		maxElementsInMemory="5000" maxElementsOnDisk="0" eternal="false"
+		timeToIdleSeconds="0" timeToLiveSeconds="0"
+		memoryStoreEvictionPolicy="LFU">
+	</cache>
+	<cache name="activeScheduleEhCache" maxElementsInMemory="50000"
+		maxElementsOnDisk="0" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" memoryStoreEvictionPolicy="LFU">
+	</cache>
+</ehcache>

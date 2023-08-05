@@ -1,0 +1,579 @@
+<configuration debug="true">
+	<contextName>ezee</contextName>
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="fileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/busservices.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>busservices.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="proxyFileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/proxy.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>proxy.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="reportAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/report.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>report.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="smsAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/sms.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>sms.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="gpsAPIAccess"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/gpsApiAccess.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>gpsApiAccess.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/${CONTEXT_NAME}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>${CONTEXT_NAME}.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="filepgtrace"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/pgtrace.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>pgtrace.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="filecancelticket"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/cancelticket.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>cancelticket.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="fileAPIAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/apibusservices.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>busservicesapi.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="fileAPITransactionAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/apiTransactionbusservices.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>apiTransactionbusservices.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="tripCancel"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/tripCancel.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>tripCancel.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="dpService"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/dpService.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>dpService.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>2</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="archiveData"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/archiveData.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>archiveData.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="tripCancelAPI"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/tripCancelAPI.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>tripCancelAPI.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="tripNotification"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/tripNotification.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>tripNotification.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="walletAPI"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/wallet.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>wallet.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="ticketAudit"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/ticketAudit.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>ticketAudit.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="pushTicketEvent"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/pushTicketEvent.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>pushTicketEvent.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="trackbus"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/trackbus.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>trackbus.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="googlefcm"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/googlefcm.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>googlefcm.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="costiv"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/costiv.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>costiv.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="tripFare"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/tripFare.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>tripFare.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="tripInfoPush"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/tripInfoPush.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>tripInfoPush.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="whatsapp"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/whatsapp.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>whatsapp.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="tickettransfer"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/tickettransfer.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>tickettransfer.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="eventNotification"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/eventNotificationConfig.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>eventNotificationConfig.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="orbitLogger"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/orbit.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>orbit.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="pgrefund"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/refundpg.log</file>
+		<append>true</append>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>refundpg.log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- keep 90 days' worth of history -->
+			<maxHistory>90</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.in.com.config" level="trace">
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="org.springframework.transaction" level="DEBUG" />
+	<logger name="org.springframework.orm.jpa" level="DEBUG" />
+	<logger name="org.springframework.web" level="ERROR" />
+	<logger name="org.springframework.data.redis.core" level="ERROR" />
+	<logger name="org.springframework.beans.factory.support" level="ERROR" />
+	<!-- <root> <level value="error" /> <appender-ref ref="CONSOLE" /> </root> -->
+
+	<logger name="org.in.com.controller.api_v2" level="trace"
+		additivity="false">
+		<appender-ref ref="fileAPIAppender" />
+	</logger>
+	<logger name="org.in.com.controller.pgtrace" level="trace"
+		additivity="false">
+		<appender-ref ref="filepgtrace" />
+	</logger>
+	<logger name="org.in.com.controller.cancelticket" level="trace"
+		additivity="false">
+		<appender-ref ref="filecancelticket" />
+	</logger>
+	<logger name="org.in.com.controller.report" level="trace"
+		additivity="false">
+		<appender-ref ref="reportAppender" />
+	</logger>
+	<logger name="org.in.com.controller.sms" level="trace"
+		additivity="false">
+		<appender-ref ref="smsAppender" />
+	</logger>
+	<logger name="org.in.com.controller.gpsAPIAccess" level="trace"
+		additivity="false">
+		<appender-ref ref="gpsAPIAccess" />
+	</logger>
+	<logger name="org.in.com.service.impl.CancelTicketImpl" level="trace"
+		additivity="false">
+		<appender-ref ref="tripCancel" />
+	</logger>
+	<logger name="org.in.com.controller.api_v2_trans" level="trace"
+		additivity="false">
+		<appender-ref ref="fileAPITransactionAppender" />
+	</logger>
+	<logger name="org.in.com.aggregator.dynamic.pricing" level="trace"
+		additivity="false">
+		<appender-ref ref="dpService" />
+	</logger>
+	<logger name="org.in.com.service.impl.ArchiveImpl" level="trace"
+		additivity="false">
+		<appender-ref ref="archiveData" />
+	</logger>
+	<logger name="org.in.com.aggregator.utility.BitsUtilityCommunicator"
+		level="trace" additivity="false">
+		<appender-ref ref="tripCancelAPI" />
+	</logger>
+	<logger name="org.in.com.service.impl.TripImpl" level="trace"
+		additivity="false">
+		<appender-ref ref="tripNotification" />
+	</logger>
+	<logger name="org.in.com.aggregator.wallet.WalletCommunicator"
+		level="trace" additivity="false">
+		<appender-ref ref="walletAPI" />
+	</logger>
+	<logger name="org.in.com.service.impl.AuditImpl" level="trace"
+		additivity="false">
+		<appender-ref ref="ticketAudit" />
+	</logger>
+	<logger name="org.in.com.aggregator.bits.BitsCommunicator"
+		level="trace" additivity="false">
+		<appender-ref ref="pushTicketEvent" />
+	</logger>
+	<logger name="org.in.com.aggregator.bits.trackbus" level="trace"
+		additivity="false">
+		<appender-ref ref="trackbus" />
+	</logger>
+	<logger name="org.in.com.aggregator.fcm.FCMCommunicator" level="trace"
+		additivity="false">
+		<appender-ref ref="googlefcm" />
+	</logger>
+	<logger name="costivLog" level="trace" additivity="false">
+		<appender-ref ref="costiv" />
+	</logger>
+	<logger name="org.in.com.proxy" level="trace" additivity="false">
+		<appender-ref ref="proxyFileAppender" />
+	</logger>
+	<logger name="org.in.com.service.impl.ScheduleTripFareImpl" level="trace"
+		additivity="false">
+		<appender-ref ref="tripFare" />
+	</logger>
+	<logger name="org.in.com.service.impl.PushTripInfoImpl" level="trace"
+		additivity="false">
+		<appender-ref ref="tripInfoPush" />
+	</logger>
+	<logger name="org.in.com.aggregator.whatsapp.WhatsappService" level="trace"
+		additivity="false">
+		<appender-ref ref="whatsapp" />
+	</logger>
+	<logger name="tickettransferlogger" level="trace"
+		additivity="false">
+		<appender-ref ref="tickettransfer" />
+	</logger>
+	<logger name="org.in.com.service.impl.EventNotificationConfigImpl" level="trace"
+		additivity="false">
+		<appender-ref ref="eventNotification" />
+	</logger>
+	<logger name="org.in.com.aggregator.orbit.OrbitCommunicator" level="trace"
+		additivity="false">
+		<appender-ref ref="orbitLogger" />
+	</logger>
+	<logger name="org.in.com.service.pg.PaymentRefundServiceImpl"
+		level="trace" additivity="false">
+		<appender-ref ref="pgrefund" />
+	</logger>
+	<root>
+		<level value="TRACE" />
+		<appender-ref ref="fileAppender" />
+	</root>
+
+</configuration>

@@ -1,0 +1,28 @@
+package org.in.com.controller.app.io;
+
+import java.util.List;
+
+import lombok.Data;
+
+@Data
+public class GpsIO {
+	private String latitude;
+	private String longitude;
+	private String updatedTime;
+	private String trackingCloseTime;
+	private String driverName;
+	private String remarks;
+	private String driverMobile;
+	private String registationNumber;
+	private String deviceCode;
+	private String vendorCode;
+	private String address;
+	private OperatorIO operator;
+	private StationIO fromStation;
+	private StationIO toStation;
+	private BusIO bus;
+	private float speed;
+	private TripIO trip;
+	private int ignition;
+	private List<TicketDetailsIO> ticketDetails;
+}

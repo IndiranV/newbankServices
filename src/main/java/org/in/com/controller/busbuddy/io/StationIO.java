@@ -1,0 +1,14 @@
+package org.in.com.controller.busbuddy.io;
+
+import java.util.List;
+
+import lombok.Data;
+
+@Data
+public class StationIO {
+	private String name;
+	private String code;
+	private String dateTime;
+	private StationPointIO stationPoints;
+	private List<StationPointIO> stationPoint;
+}
